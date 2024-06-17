@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Forum1.Models.DBModels.ForumPost>
+@using System.Security.Claims
+
+@{
+    ViewData["Title"] = "Home Page";
+    string userRole = ViewBag.UserRole;
+}
+
+<h2>Текущий пользователь</h2>
+
+<table class="table">
+    <tr>
+        <th>ФИО пользователя</th>
+        <td>@(Model.FirstOrDefault()?.User.FullName ?? "-")</td>
+    </tr>
+    <tr>
+        <th>Почта</th>
+        <td>@(Model.FirstOrDefault()?.User.Email ?? "-")</td>
+    </tr>
+    <tr>
+        <th>Логин</th>
+        <td>@(Model.FirstOrDefault()?.User.Login ?? "-")</td>
+    </tr>
+    <tr>
+        <th>Статус пользователя</th>
+        <td>@(Model.FirstOrDefault()?.User.Status ?? "-")</td>
+    </tr>
+    <tr>
+        <th>Статус аккаунта</th>
+        <td>@(Model.FirstOrDefault()?.User.Status ?? "-")</td>
+    </tr>
+    <tr>
+        <th>Контактная информация</th>
+    </tr>
+</table>
+
+<div>
+    <h1>Welcome to the Home Page!</h1>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <p>Welcome, @User.Identity.Name!</p>
+        <a asp-controller="Authorization" asp-action="Profile" class="btn btn-primary">Profile</a>
+        <a asp-controller="Authorization" asp-action="Exit" class="btn btn-danger">Logout</a>
+    }
+    else
+    {
+        <p>Welcome, guest!</p>
+        <a asp-controller="Authorization" asp-action="Login" class="btn btn-primary">Login</a>
+        <a asp-controller="Authorization" asp-action="Registration" class="btn btn-success">Register</a>
+    }
+
+    <ul>
+        @foreach (var post in Model)
+        {
+            <li>
+                <h3>@post.Title</h3>
+                <p>@post.Content</p>
+                <p>Created Date: @post.CreatedAt.ToShortDateString()</p>
+            </li>
+        }
+    </ul>
+</div>

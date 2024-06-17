@@ -1,0 +1,45 @@
+﻿@model Forum1.Models.DBModels.UserAccount
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Удалить пользователя</h1>
+
+<h3>Вы уверены, что хотите удалить этого пользователя?</h3>
+<div>
+    <h4>Пользователь</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Логин
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Login)
+        </dd>
+        <dt class="col-sm-2">
+            Email
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class="col-sm-2">
+            Роль
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Role)
+        </dd>
+        <dt class="col-sm-2">
+            Статус
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="AccountId" />
+        <input type="submit" value="Удалить" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-secondary">Назад</a>
+    </form>
+</div>

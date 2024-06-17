@@ -1,0 +1,11 @@
+﻿@model Forum1.Models.DBModels.UserAccount
+
+<h2>Профиль пользователя</h2>
+
+<p>Логин: @Model.Login</p>
+<p>Email: @Model.Email</p>
+<p>Имя: @Model.FullName</p>
+<p>Номер телефона: @Model.PhoneNumber</p>
+<p>Дата рождения: @Model.DateOfBirth?.ToShortDateString()</p>
+
+<a asp-action="UpdateProfile" asp-controller="Home">Редактировать профиль</a>

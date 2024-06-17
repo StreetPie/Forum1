@@ -1,0 +1,38 @@
+﻿@model Forum1.Models.DBModels.UserAccount
+
+<main>
+    <h1>Профиль пользователя</h1>
+    
+    @using (Html.BeginForm("UpdateProfile", "Authorization", FormMethod.Post))
+    {
+        <div>
+            <label>Логин</label>
+            @Html.TextBoxFor(model => model.Login, new { @readonly = "readonly" })
+        </div>
+        <div>
+            <label>Email</label>
+            @Html.TextBoxFor(model => model.Email)
+        </div>
+        <div>
+            <label>ФИО</label>
+            @Html.TextBoxFor(model => model.FullName)
+        </div>
+        <div>
+            <label>Номер телефона</label>
+            @Html.TextBoxFor(model => model.PhoneNumber)
+        </div>
+        <div>
+            <label>Дата рождения</label>
+            @Html.TextBoxFor(model => model.DateOfBirth, new { @type = "date" })
+        </div>
+        
+        @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+        {
+            <div class="alert alert-danger" role="alert">
+                @ViewBag.ErrorMessage
+            </div>
+        }
+        
+        <button class="btn btn-primary" type="submit">Сохранить изменения</button>
+    }
+</main>

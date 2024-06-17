@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Forum1.Models.DBModels.UserAccount>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Наши пользователи</h1>
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        <a asp-action="Create" class="btn btn-primary">Добавить</a>
+    </p>
+}
+<table class="table">
+    <thead>
+    <tr>
+        <th>Логин</th>
+        <th>Email</th>
+        <th>Роль</th>
+        <th>Статус</th>
+        @if (User.IsInRole("Admin"))
+        {
+            <th>Действия</th>
+        }
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Login)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Role)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            @if (User.IsInRole("Admin"))
+            {
+                <td>
+                    <a asp-action="Edit" class="btn btn-primary" asp-route-id="@item.AccountId">Редактировать</a> |
+                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.AccountId">Удалить</a>
+                </td>
+            }
+        </tr>
+    }
+    </tbody>
+</table>
