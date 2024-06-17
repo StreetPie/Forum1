@@ -1,29 +1,31 @@
-﻿@model Forum1.Models.DBModels.UserAccount
-<main>
-    @using (Html.BeginForm("Registration", "Authorization", FormMethod.Post))
-    {
-        <h1 class="loginregH1">Регистрация</h1>
-        <div>
-            <label>Логин</label>
-            @Html.TextBoxFor(model => model.Login)
-        </div>
-        <div>
-            <label>Email</label>
-            @Html.TextBoxFor(model => model.Email)
-        </div>
-        <div>
-            <label>Пароль</label>
-            @Html.TextBoxFor(model => model.Password)
-        </div>
-        @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
-        {
-            <div class="alert alert-danger" role="alert">
-                @ViewBag.ErrorMessage
-            </div>
-        }
-        <button class="btn btn-primary" type="submit">Регистрация</button>
-    }
-    <div class="form-group" style="margin-top: 20px;">
-        <a asp-controller="Authorization" asp-action="Login" class="btn btn-secondary">Войти</a>
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model Forum1.Models.DBModels.UserAccount
+
+<h1>Registration</h1>
+
+@if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.ErrorMessage
     </div>
-</main>
+}
+
+<form method="post">
+    <div>
+        <label asp-for="Login"></label>
+        <input asp-for="Login" />
+    </div>
+    <div>
+        <label asp-for="Email"></label>
+        <input asp-for="Email" />
+    </div>
+    <div>
+        <label asp-for="Password"></label>
+        <input asp-for="Password" type="password" />
+    </div>
+    <button type="submit">Register</button>
+</form>
+
+<div>
+    <a asp-controller="Authorization" asp-action="Login" class="btnm">Войти</a>
+</div>

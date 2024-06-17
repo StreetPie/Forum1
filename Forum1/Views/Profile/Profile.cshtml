@@ -32,7 +32,11 @@
                 @ViewBag.ErrorMessage
             </div>
         }
-        
-        <button class="btn btn-primary" type="submit">Сохранить изменения</button>
+
+        <div>
+            <a asp-controller="Authorization" asp-action="Logout" class="btnm">Выйти</a>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Сохранить изменения</button>
     }
 </main>

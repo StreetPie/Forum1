@@ -1,9 +1,9 @@
 :root {
-    --background: #8bc0d0; /* Светло-голубой цвет фона */
-    --primary: #00FF00; /* Зеленый цвет текста */
-    --secondary: #D8D8D8; /* Вторичный цвет для элементов интерфейса */
-    --foreground: #878787; /* Цвет текста, второстепенный */
-    --floor: #223838; /* Цвет подвала */
+    --background: #223838;
+    --primary: #54ae08; 
+    --secondary: #D8D8D8;
+    --foreground: #878787; 
+    --floor: #223838;
 }
 
 body {
@@ -14,9 +14,10 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center; /* Центрирование по горизонтали */
-    align-items: center; /* Центрирование по вертикали */
-    color: var(--primary); /* Зеленый цвет текста */
+    flex-direction: column; 
+    justify-content: flex-start; 
+    align-items: center; 
+    color: var(--primary);
 }
 
 header, footer {
@@ -24,6 +25,7 @@ header, footer {
     color: #fff;
     padding: 10px 0;
     text-align: center;
+    width: 100%;
 }
 
 main {
@@ -31,44 +33,6 @@ main {
     max-width: 400px;
     padding: 20px;
     box-sizing: border-box;
-}
-
-.btnm {
-    display: inline-block;
-    padding: 5px 10px;
-    background-color: var(--floor);
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background-color 0.3s ease; 
-}
-
-    .btnm:hover {
-        background-color: green;
-    }
-
-.btn {
-    display: inline-block;
-    padding: 2px 5px;
-    background-color: var(--foreground);
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 15px;
-    transition: background-color 0.3s ease;
-}
-
-    .btn:hover {
-        background-color: green; 
-    }
-
-.aClass {
-    color: inherit;
-    text-decoration: none;
 }
 
 nav ul {
@@ -85,3 +49,30 @@ nav ul {
         nav ul li:last-child {
             margin-right: 0;
         }
+
+        nav ul li a {
+            color: inherit;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+            nav ul li a:hover {
+                color: green;
+            }
+
+.btnm, .btn {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: var(--floor);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+    .btnm:hover, .btn:hover {
+        background-color: green;
+    }

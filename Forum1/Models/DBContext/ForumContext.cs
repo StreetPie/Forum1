@@ -105,13 +105,13 @@ namespace Forum1.Models.DBContext
                     .HasConstraintName("FK__Access_Log__Account__38996AB5");
             });
 
-            //modelBuilder.Entity<ProfileInformation>(entity =>
-            //{
-            //    entity.HasKey(e => e.ContactId); // Установка первичного ключа как ContactId
-            //    entity.ToTable("ProfileInformations"); // Имя таблицы
-            //    entity.Property(e => e.ProfileName).IsRequired().HasMaxLength(255);
+            modelBuilder.Entity<ProfileInformation>(entity =>
+            {
+                entity.HasKey(e => e.ContactId); // Установка первичного ключа как ContactId
+                entity.ToTable("ProfileInformations"); // Имя таблицы
+                entity.Property(e => e.ProfileName).IsRequired().HasMaxLength(255);
 
-            //});
+            });
             modelBuilder.Entity<ForumPost>(entity =>
             {
                 entity.HasKey(e => e.PostId).HasName("PK__ForumPost__8C4D3BBBA4A0D430");

@@ -9,7 +9,7 @@
         public DateTime CreatedAt { get; set; }
         public virtual UserAccount User { get; set; }
 
-        //public virtual ProfileInformation Profile { get; set; }
+        public virtual ProfileInformation Profile { get; set; }
 
         public virtual ICollection<ForumComment> ForumComments { get; set; }
     }

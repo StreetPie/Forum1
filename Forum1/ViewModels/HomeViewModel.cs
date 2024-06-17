@@ -7,6 +7,7 @@ namespace Forum1.ViewModels
     {
     public UserAccount UserAccount { get; set; }
 
+    public ProfileInformation ProfileInformation { get; set; }
     public ForumPost ForumPost { get; set; }
     }
 }

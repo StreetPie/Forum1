@@ -43,7 +43,7 @@ namespace Forum1.Models.DBModels
 
         public string? Status { get; set; } // "Active", "Inactive"
 
-       // public virtual ProfileInformation Profile { get; set; }
+        public virtual ProfileInformation Profile { get; set; }
 
         public virtual ICollection<ForumPost> ForumPosts { get; set; } = [];
 
